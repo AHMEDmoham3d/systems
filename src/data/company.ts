@@ -1,4 +1,6 @@
-export const companyInfo = {
+import { CompanyInfo, Sector, Product, ProductFeature, FinancialProjection } from '../lib/supabase';
+
+export const companyInfo: CompanyInfo = {
   id: '1',
   name: 'CloudSoft Solutions',
   description:
@@ -10,7 +12,7 @@ export const companyInfo = {
   founded_year: 2024,
 };
 
-export const sectors = [
+export const sectors: Sector[] = [
   {
     id: 'healthcare',
     name: 'Healthcare',
@@ -31,14 +33,14 @@ export const sectors = [
   },
 ];
 
-export const products = [
+export const products: Product[] = [
   {
     id: 'medicore',
     sector_id: 'healthcare',
     name: 'MediCore Plus',
     description:
       'Complete hospital management system with patient records, appointments, billing, and inventory management',
-    status: 'active',
+    status: 'active' as const,
     vision: 'To become the leading healthcare management platform trusted by hospitals worldwide',
     target_market: 'Large hospitals and multi-specialty clinics',
     launch_date: '2024-03-01',
@@ -48,7 +50,7 @@ export const products = [
     sector_id: 'healthcare',
     name: 'ClinicFlow',
     description: 'Streamlined clinic management software for small to medium healthcare providers',
-    status: 'development',
+    status: 'development' as const,
     vision: 'Simplifying clinic operations for healthcare providers everywhere',
     target_market: 'Private clinics and small healthcare centers',
     launch_date: '2025-06-01',
@@ -59,7 +61,7 @@ export const products = [
     name: 'EduManage Pro',
     description:
       'Comprehensive school management system covering admissions, academics, attendance, and parent communication',
-    status: 'active',
+    status: 'active' as const,
     vision: 'Transforming education management through digital innovation',
     target_market: 'K-12 schools and educational institutions',
     launch_date: '2024-01-15',
@@ -69,7 +71,7 @@ export const products = [
     sector_id: 'education',
     name: 'Campus360',
     description: 'Advanced college and university management platform with LMS integration',
-    status: 'planned',
+    status: 'planned' as const,
     vision: 'Creating connected campus experiences for higher education',
     target_market: 'Colleges and universities',
     launch_date: '2025-09-01',
@@ -80,7 +82,7 @@ export const products = [
     name: 'FitClub Manager',
     description:
       'Complete gym and fitness center management with member tracking, classes, and billing',
-    status: 'active',
+    status: 'active' as const,
     vision: 'Empowering fitness businesses to grow and succeed',
     target_market: 'Gyms, fitness centers, and sports clubs',
     launch_date: '2024-02-01',
@@ -90,58 +92,58 @@ export const products = [
     sector_id: 'fitness',
     name: 'SportsPro Suite',
     description: 'Professional sports club management with team management, tournaments, and analytics',
-    status: 'development',
+    status: 'development' as const,
     vision: 'Revolutionizing sports club operations globally',
     target_market: 'Sports clubs and athletic organizations',
     launch_date: '2025-07-01',
   },
 ];
 
-export const productFeatures = [
-  { id: '1', product_id: 'medicore', feature: 'Patient Management System', status: 'completed' },
-  { id: '2', product_id: 'medicore', feature: 'Electronic Medical Records', status: 'completed' },
-  { id: '3', product_id: 'medicore', feature: 'Appointment Scheduling', status: 'completed' },
-  { id: '4', product_id: 'medicore', feature: 'Billing & Insurance Claims', status: 'in_progress' },
-  { id: '5', product_id: 'medicore', feature: 'Pharmacy Management', status: 'in_progress' },
-  { id: '6', product_id: 'medicore', feature: 'Laboratory Integration', status: 'planned' },
-  { id: '7', product_id: 'medicore', feature: 'Telemedicine Module', status: 'planned' },
+export const productFeatures: ProductFeature[] = [
+  { id: '1', product_id: 'medicore', feature: 'Patient Management System', status: 'completed' as const },
+  { id: '2', product_id: 'medicore', feature: 'Electronic Medical Records', status: 'completed' as const },
+  { id: '3', product_id: 'medicore', feature: 'Appointment Scheduling', status: 'completed' as const },
+  { id: '4', product_id: 'medicore', feature: 'Billing & Insurance Claims', status: 'in_progress' as const },
+  { id: '5', product_id: 'medicore', feature: 'Pharmacy Management', status: 'in_progress' as const },
+  { id: '6', product_id: 'medicore', feature: 'Laboratory Integration', status: 'planned' as const },
+  { id: '7', product_id: 'medicore', feature: 'Telemedicine Module', status: 'planned' as const },
 
-  { id: '8', product_id: 'clinicflow', feature: 'Quick Appointment Booking', status: 'in_progress' },
-  { id: '9', product_id: 'clinicflow', feature: 'Patient Records', status: 'in_progress' },
-  { id: '10', product_id: 'clinicflow', feature: 'Prescription Management', status: 'in_progress' },
-  { id: '11', product_id: 'clinicflow', feature: 'SMS Reminders', status: 'planned' },
-  { id: '12', product_id: 'clinicflow', feature: 'Digital Payment Integration', status: 'planned' },
+  { id: '8', product_id: 'clinicflow', feature: 'Quick Appointment Booking', status: 'in_progress' as const },
+  { id: '9', product_id: 'clinicflow', feature: 'Patient Records', status: 'in_progress' as const },
+  { id: '10', product_id: 'clinicflow', feature: 'Prescription Management', status: 'in_progress' as const },
+  { id: '11', product_id: 'clinicflow', feature: 'SMS Reminders', status: 'planned' as const },
+  { id: '12', product_id: 'clinicflow', feature: 'Digital Payment Integration', status: 'planned' as const },
 
-  { id: '13', product_id: 'edumanage', feature: 'Student Information System', status: 'completed' },
-  { id: '14', product_id: 'edumanage', feature: 'Attendance Tracking', status: 'completed' },
-  { id: '15', product_id: 'edumanage', feature: 'Grade Management', status: 'completed' },
-  { id: '16', product_id: 'edumanage', feature: 'Parent Portal', status: 'completed' },
-  { id: '17', product_id: 'edumanage', feature: 'Fee Management', status: 'in_progress' },
-  { id: '18', product_id: 'edumanage', feature: 'Timetable Management', status: 'in_progress' },
-  { id: '19', product_id: 'edumanage', feature: 'Library Management', status: 'planned' },
-  { id: '20', product_id: 'edumanage', feature: 'Transport Management', status: 'planned' },
+  { id: '13', product_id: 'edumanage', feature: 'Student Information System', status: 'completed' as const },
+  { id: '14', product_id: 'edumanage', feature: 'Attendance Tracking', status: 'completed' as const },
+  { id: '15', product_id: 'edumanage', feature: 'Grade Management', status: 'completed' as const },
+  { id: '16', product_id: 'edumanage', feature: 'Parent Portal', status: 'completed' as const },
+  { id: '17', product_id: 'edumanage', feature: 'Fee Management', status: 'in_progress' as const },
+  { id: '18', product_id: 'edumanage', feature: 'Timetable Management', status: 'in_progress' as const },
+  { id: '19', product_id: 'edumanage', feature: 'Library Management', status: 'planned' as const },
+  { id: '20', product_id: 'edumanage', feature: 'Transport Management', status: 'planned' as const },
 
-  { id: '21', product_id: 'campus360', feature: 'Course Management System', status: 'planned' },
-  { id: '22', product_id: 'campus360', feature: 'LMS Integration', status: 'planned' },
-  { id: '23', product_id: 'campus360', feature: 'Student Admissions', status: 'planned' },
-  { id: '24', product_id: 'campus360', feature: 'Faculty Management', status: 'planned' },
-  { id: '25', product_id: 'campus360', feature: 'Research & Publications', status: 'planned' },
-  { id: '26', product_id: 'campus360', feature: 'Alumni Network', status: 'planned' },
+  { id: '21', product_id: 'campus360', feature: 'Course Management System', status: 'planned' as const },
+  { id: '22', product_id: 'campus360', feature: 'LMS Integration', status: 'planned' as const },
+  { id: '23', product_id: 'campus360', feature: 'Student Admissions', status: 'planned' as const },
+  { id: '24', product_id: 'campus360', feature: 'Faculty Management', status: 'planned' as const },
+  { id: '25', product_id: 'campus360', feature: 'Research & Publications', status: 'planned' as const },
+  { id: '26', product_id: 'campus360', feature: 'Alumni Network', status: 'planned' as const },
 
-  { id: '27', product_id: 'fitclub', feature: 'Member Management', status: 'completed' },
-  { id: '28', product_id: 'fitclub', feature: 'Class Scheduling', status: 'completed' },
-  { id: '29', product_id: 'fitclub', feature: 'Membership Billing', status: 'completed' },
-  { id: '30', product_id: 'fitclub', feature: 'Access Control', status: 'completed' },
-  { id: '31', product_id: 'fitclub', feature: 'Trainer Management', status: 'in_progress' },
-  { id: '32', product_id: 'fitclub', feature: 'Nutrition Tracking', status: 'planned' },
-  { id: '33', product_id: 'fitclub', feature: 'Mobile App', status: 'planned' },
+  { id: '27', product_id: 'fitclub', feature: 'Member Management', status: 'completed' as const },
+  { id: '28', product_id: 'fitclub', feature: 'Class Scheduling', status: 'completed' as const },
+  { id: '29', product_id: 'fitclub', feature: 'Membership Billing', status: 'completed' as const },
+  { id: '30', product_id: 'fitclub', feature: 'Access Control', status: 'completed' as const },
+  { id: '31', product_id: 'fitclub', feature: 'Trainer Management', status: 'in_progress' as const },
+  { id: '32', product_id: 'fitclub', feature: 'Nutrition Tracking', status: 'planned' as const },
+  { id: '33', product_id: 'fitclub', feature: 'Mobile App', status: 'planned' as const },
 
-  { id: '34', product_id: 'sportspro', feature: 'Team Management', status: 'in_progress' },
-  { id: '35', product_id: 'sportspro', feature: 'Tournament Organization', status: 'in_progress' },
-  { id: '36', product_id: 'sportspro', feature: 'Player Statistics', status: 'in_progress' },
-  { id: '37', product_id: 'sportspro', feature: 'Training Programs', status: 'planned' },
-  { id: '38', product_id: 'sportspro', feature: 'Equipment Management', status: 'planned' },
-  { id: '39', product_id: 'sportspro', feature: 'Performance Analytics', status: 'planned' },
+  { id: '34', product_id: 'sportspro', feature: 'Team Management', status: 'in_progress' as const },
+  { id: '35', product_id: 'sportspro', feature: 'Tournament Organization', status: 'in_progress' as const },
+  { id: '36', product_id: 'sportspro', feature: 'Player Statistics', status: 'in_progress' as const },
+  { id: '37', product_id: 'sportspro', feature: 'Training Programs', status: 'planned' as const },
+  { id: '38', product_id: 'sportspro', feature: 'Equipment Management', status: 'planned' as const },
+  { id: '39', product_id: 'sportspro', feature: 'Performance Analytics', status: 'planned' as const },
 ];
 
 export const teamMembers = [
@@ -264,7 +266,7 @@ export const teamMembers = [
   },
 ];
 
-export const financialProjections = [
+export const financialProjections: FinancialProjection[] = [
   // MediCore Plus
   { id: '1', product_id: 'medicore', year: 2024, quarter: 1, revenue_projection: 125000, user_projection: 15 },
   { id: '2', product_id: 'medicore', year: 2024, quarter: 2, revenue_projection: 185000, user_projection: 28 },
