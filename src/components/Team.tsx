@@ -1,4 +1,4 @@
-import { TeamMember, Sector } from '../lib/supabase';
+import { TeamMember, Sector } from '../lib/types';
 import { Mail, Calendar } from 'lucide-react';
 
 interface TeamProps {

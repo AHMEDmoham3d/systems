@@ -1,4 +1,4 @@
-import { CompanyInfo } from '../lib/supabase';
+import { CompanyInfo } from '../lib/types';
 import { Target, Eye, Calendar } from 'lucide-react';
 
 interface OverviewProps {
