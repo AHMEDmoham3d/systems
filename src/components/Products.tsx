@@ -1,4 +1,4 @@
-import { Product, ProductFeature, Sector } from '../lib/supabase';
+import { Product, ProductFeature, Sector } from '../lib/types';
 import { CheckCircle2, Clock, Circle } from 'lucide-react';
 
 interface ProductsProps {

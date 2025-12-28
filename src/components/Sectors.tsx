@@ -1,4 +1,4 @@
-import { Sector } from '../lib/supabase';
+import { Sector } from '../lib/types';
 import { Heart, GraduationCap, Dumbbell } from 'lucide-react';
 
 interface SectorsProps {

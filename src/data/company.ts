@@ -1,4 +1,4 @@
-import { CompanyInfo, Sector, Product, ProductFeature, FinancialProjection } from '../lib/supabase';
+import { CompanyInfo, Sector, Product, ProductFeature, FinancialProjection } from '../lib/types';
 
 export const companyInfo: CompanyInfo = {
   id: '1',

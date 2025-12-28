@@ -1,4 +1,4 @@
-import { FinancialProjection, Product } from '../lib/supabase';
+import { FinancialProjection, Product } from '../lib/types';
 import { TrendingUp, Users } from 'lucide-react';
 
 interface ProjectionsProps {
