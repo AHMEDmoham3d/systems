@@ -1,12 +1,5 @@
 import { useState } from 'react';
-import {
-  companyInfo,
-  sectors,
-  products,
-  productFeatures,
-  teamMembers,
-  financialProjections,
-} from './data/company';
+import { useData } from './lib/useData';
 import Header from './components/Header';
 import Overview from './components/Overview';
 import Sectors from './components/Sectors';
@@ -16,6 +9,37 @@ import Projections from './components/Projections';
 
 function App() {
   const [activeSection, setActiveSection] = useState('overview');
+  const {
+    companyInfo,
+    sectors,
+    products,
+    productFeatures,
+    teamMembers,
+    financialProjections,
+    loading,
+    error,
+  } = useData();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !companyInfo) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-red-600">Error loading data: {error}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">

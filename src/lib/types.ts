@@ -5,8 +5,6 @@ export interface CompanyInfo {
   vision: string;
   mission: string;
   founded_year: number;
-  created_at?: string;
-  updated_at?: string;
 }
 
 export interface Sector {
@@ -14,7 +12,6 @@ export interface Sector {
   name: string;
   description: string;
   icon: string;
-  created_at?: string;
 }
 
 export interface Product {
@@ -26,7 +23,6 @@ export interface Product {
   vision: string;
   target_market: string;
   launch_date: string;
-  created_at?: string;
 }
 
 export interface ProductFeature {
@@ -34,7 +30,6 @@ export interface ProductFeature {
   product_id: string;
   feature: string;
   status: 'completed' | 'in_progress' | 'planned';
-  created_at?: string;
 }
 
 export interface TeamMember {
@@ -45,7 +40,6 @@ export interface TeamMember {
   email: string;
   joined_date: string;
   bio: string;
-  created_at?: string;
 }
 
 export interface FinancialProjection {
@@ -55,5 +49,4 @@ export interface FinancialProjection {
   quarter: number;
   revenue_projection: number;
   user_projection: number;
-  created_at?: string;
 }
