@@ -52,7 +52,7 @@ function App() {
         {activeSection === 'overview' && <Overview company={companyInfo} />}
         {activeSection === 'sectors' && <Sectors sectors={sectors} />}
         {activeSection === 'products' && (
-          <Products products={products} features={productFeatures} sectors={sectors} />
+          <Products products={products} features={productFeatures} sectors={sectors} projections={financialProjections} />
         )}
         {activeSection === 'team' && <Team team={teamMembers} sectors={sectors} />}
         {activeSection === 'projections' && (
