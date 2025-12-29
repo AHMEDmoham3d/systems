@@ -11,6 +11,6 @@
 ## Next Steps
 - [ ] Set up Supabase database with tables: company_info, sectors, products, product_features, team_members, financial_projections
 - [ ] Insert the static data from src/data/company.ts into the Supabase tables
-- [ ] Create a .env file locally with VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY
-- [ ] Set environment variables in your hosting platform (e.g., Vercel, Netlify) for production
+- [x] Remove .env file and embed Supabase keys directly in src/lib/supabase.ts
+- [ ] Set environment variables in your hosting platform (e.g., Vercel, Netlify) for production (Note: Keys are now hardcoded)
 - [ ] Test the app locally and in hosting to ensure data loads correctly
