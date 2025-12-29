@@ -8,6 +8,14 @@ import {
   TeamMember,
   FinancialProjection,
 } from './types';
+import {
+  companyInfo as staticCompanyInfo,
+  sectors as staticSectors,
+  products as staticProducts,
+  productFeatures as staticProductFeatures,
+  teamMembers as staticTeamMembers,
+  financialProjections as staticFinancialProjections,
+} from '../data/company';
 
 interface DataState {
   companyInfo: CompanyInfo | null;
@@ -66,11 +74,17 @@ export function useData(): DataState {
           error: null,
         });
       } catch (err) {
-        setData(prev => ({
-          ...prev,
+        // Fallback to static data if Supabase fails
+        setData({
+          companyInfo: staticCompanyInfo,
+          sectors: staticSectors,
+          products: staticProducts,
+          productFeatures: staticProductFeatures,
+          teamMembers: staticTeamMembers,
+          financialProjections: staticFinancialProjections,
           loading: false,
-          error: err instanceof Error ? err.message : 'An error occurred',
-        }));
+          error: null, // No error since we're using fallback
+        });
       }
     };
 
