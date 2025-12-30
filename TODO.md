@@ -1,9 +1,30 @@
-# TODO: Reorder Products and Add Popup Details
+# TODO: Implement Sector Content CRUD
 
-## Tasks
-- [x] Update App.tsx to pass financialProjections to Products component
-- [x] Modify Products.tsx to group products by sector and order sectors: education, healthcare, fitness
-- [x] Add state for selected product and modal visibility in Products.tsx
-- [x] Implement click handler on each product to open modal
-- [x] Create modal content showing product details, features list, and financial projections table
-- [x] Test the reordered display and popup functionality
+## 1. Add SectorContent Type
+- Add SectorContent interface to src/lib/types.ts with fields: id, sector_id, title, content, created_at
+
+## 2. Extend useData Hook
+- Modify src/lib/useData.ts to fetch from z_sector_a, z_sector_b, z_sector_c tables
+- Combine data into SectorContent[] array
+- Add sectorContent to the returned data
+
+## 3. Add CRUD Functions
+- Create src/lib/sectorContent.ts with functions:
+  - fetchSectorContent(sector_id): fetch from specific table
+  - addSectorContent(sector_id, title, content): insert into table
+  - updateSectorContent(id, sector_id, title, content): update in table
+  - deleteSectorContent(id, sector_id): delete from table
+
+## 4. Modify Sectors Component
+- Update src/components/Sectors.tsx to display content for each sector
+- Add "Add Content" button for each sector
+- Add edit/delete buttons for each content item
+
+## 5. Add Content Modal
+- Create a modal component for adding/editing content
+- Include form fields: title, content
+- Handle save/update actions
+
+## 6. Integrate with App
+- Update src/App.tsx to pass sectorContent to Sectors component
+- Ensure data refreshes after CRUD operations

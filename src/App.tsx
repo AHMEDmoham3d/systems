@@ -9,6 +9,7 @@ import Projections from './components/Projections';
 
 function App() {
   const [activeSection, setActiveSection] = useState('overview');
+  const [refreshKey, setRefreshKey] = useState(0);
   const {
     companyInfo,
     sectors,
@@ -16,9 +17,14 @@ function App() {
     productFeatures,
     teamMembers,
     financialProjections,
+    sectorContent,
     loading,
     error,
-  } = useData();
+  } = useData(refreshKey);
+
+  const handleContentChange = () => {
+    setRefreshKey(prev => prev + 1);
+  };
 
   if (loading) {
     return (
@@ -50,7 +56,7 @@ function App() {
       />
       <main className="max-w-7xl mx-auto px-6 py-8">
         {activeSection === 'overview' && <Overview company={companyInfo} />}
-        {activeSection === 'sectors' && <Sectors sectors={sectors} />}
+        {activeSection === 'sectors' && <Sectors sectors={sectors} sectorContent={sectorContent} onContentChange={handleContentChange} />}
         {activeSection === 'products' && (
           <Products products={products} features={productFeatures} sectors={sectors} projections={financialProjections} />
         )}

@@ -7,7 +7,9 @@ import {
   ProductFeature,
   TeamMember,
   FinancialProjection,
+  SectorContent,
 } from './types';
+import { fetchSectorContent } from './sectorContent';
 
 // Static data embedded directly in the module
 const staticCompanyInfo: CompanyInfo = {
@@ -331,11 +333,12 @@ interface DataState {
   productFeatures: ProductFeature[];
   teamMembers: TeamMember[];
   financialProjections: FinancialProjection[];
+  sectorContent: SectorContent[];
   loading: boolean;
   error: string | null;
 }
 
-export function useData(): DataState {
+export function useData(refreshKey?: number): DataState {
   const [data, setData] = useState<DataState>({
     companyInfo: null,
     sectors: [],
@@ -343,6 +346,7 @@ export function useData(): DataState {
     productFeatures: [],
     teamMembers: [],
     financialProjections: [],
+    sectorContent: [],
     loading: true,
     error: null,
   });
@@ -370,6 +374,11 @@ export function useData(): DataState {
           throw new Error('Failed to fetch data from Supabase');
         }
 
+        // Fetch sector content from all tables
+        const sectorContentPromises = staticSectors.map(sector => fetchSectorContent(sector.id));
+        const sectorContentResults = await Promise.all(sectorContentPromises);
+        const allSectorContent = sectorContentResults.flat();
+
         setData({
           companyInfo: companyData as CompanyInfo,
           sectors: sectorsData as Sector[],
@@ -377,6 +386,7 @@ export function useData(): DataState {
           productFeatures: featuresData as ProductFeature[],
           teamMembers: teamData as TeamMember[],
           financialProjections: projectionsData as FinancialProjection[],
+          sectorContent: allSectorContent,
           loading: false,
           error: null,
         });
@@ -389,6 +399,7 @@ export function useData(): DataState {
           productFeatures: staticProductFeatures,
           teamMembers: staticTeamMembers,
           financialProjections: staticFinancialProjections,
+          sectorContent: [], // No static content
           loading: false,
           error: null, // No error since we're using fallback
         });
@@ -396,7 +407,7 @@ export function useData(): DataState {
     };
 
     fetchData();
-  }, []);
+  }, [refreshKey]);
 
   return data;
 }
